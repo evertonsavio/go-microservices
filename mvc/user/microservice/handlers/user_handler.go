@@ -1,18 +1,19 @@
 package handlers
 
 import (
-	"github.com/havyx/golang-microservices/mvc/user/microservice/utils"
 	"encoding/json"
-	"github.com/havyx/golang-microservices/mvc/user/microservice/services"
-	"strconv"
 	"log"
 	"net/http"
+	"strconv"
+
+	"github.com/havyx/golang-microservices/mvc/user/microservice/services"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/utils"
 )
 
-func GetUser(resp http.ResponseWriter, req *http.Request){
+func GetUser(resp http.ResponseWriter, req *http.Request) {
 
 	userId := req.URL.Query().Get("user_id")
-	log.Println("UserId is: "+ userId)
+	log.Println("UserId is: " + userId)
 
 	userIdInt, err := strconv.ParseInt(userId, 10, 64)
 
@@ -29,8 +30,8 @@ func GetUser(resp http.ResponseWriter, req *http.Request){
 		resp.Write(jsonValue)
 		return
 	}
-	
-	user,apiErr := services.GetUser(userIdInt)
+
+	user, apiErr := services.UserService.GetUser(userIdInt)
 
 	if apiErr != nil {
 		jsonValue, _ := json.Marshal(apiErr)
