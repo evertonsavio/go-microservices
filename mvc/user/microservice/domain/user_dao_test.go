@@ -30,3 +30,18 @@ func TestGetUsetNotFoundWithAssertPackage(t *testing.T) {
 	assert.EqualValues(t,http.StatusNotFound, err.StatusCode, "We were expecting 404 when user not found." )
 
 }
+
+func TestGetUserNoError(t *testing.T){
+
+	user, err := GetUser(123)
+
+	assert.Nil(t, err)
+	assert.NotNil(t, user)
+
+	assert.EqualValues(t, 123, user.Id)
+	assert.EqualValues(t, "Savio", user.FistName)
+	assert.EqualValues(t, "Lucas", user.LastName)
+	assert.EqualValues(t, "everluca@hotmail.com", user.Email)
+	
+}
+
