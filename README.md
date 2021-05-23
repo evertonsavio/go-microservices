@@ -1,5 +1,5 @@
 ### Golang Microservices
-<img src="./introduction/webserver/golang.jpg"
+<img src="./introduction/webserver/go.png"
      alt="Gopher"
      style="width:100%" />
 ---
