@@ -8,7 +8,6 @@
 * Day: ATOM ONE LIGHT THEME
 * Night: Monokai Pro
 * VSCode Great Icons
-* AUTO RENAME TAG
 * Go Go Team at Google
 * Go Nightly
 ---
