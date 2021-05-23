@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/havyx/golang-microservices/mvc/user/microservice/app"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/routes"
 )
 
 func main()  {
-	app.StartApp()
+	routes.StartApp()
 }
