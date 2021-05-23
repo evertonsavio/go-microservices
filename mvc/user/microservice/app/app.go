@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/havyx/golang-microservices/mvc/controllers"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/controllers"
 	"net/http"
 )
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/havyx/golang-microservices/mvc/utils"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/utils"
 )
 
 var (

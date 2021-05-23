@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/havyx/golang-microservices/mvc/utils"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/utils"
 	"encoding/json"
-	"github.com/havyx/golang-microservices/mvc/services"
+	"github.com/havyx/golang-microservices/mvc/user/microservice/services"
 	"strconv"
 	"log"
 	"net/http"
