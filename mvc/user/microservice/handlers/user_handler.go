@@ -26,7 +26,7 @@ func GetUser(c *gin.Context){//(resp http.ResponseWriter, req *http.Request) {
 			StatusCode: http.StatusBadRequest,
 			Code:       400,
 		}
-		utils.Respond(c, apiErr.StatusCode, apiErr)
+		utils.RespondError(c, apiErr)
 		//c.JSON(http.StatusBadRequest, apiErr)
 		return
 		// jsonValue, _ := json.Marshal(apiErr)
@@ -39,7 +39,7 @@ func GetUser(c *gin.Context){//(resp http.ResponseWriter, req *http.Request) {
 		// jsonValue, _ := json.Marshal(apiErr)
 		// resp.WriteHeader(apiErr.StatusCode)
 		// resp.Write(jsonValue)
-		utils.Respond(c, apiErr.StatusCode, apiErr)
+		utils.RespondError(c, apiErr)
 		//c.JSON(apiErr.StatusCode, apiErr)
 		return
 	}
