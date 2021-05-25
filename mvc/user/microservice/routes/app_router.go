@@ -22,7 +22,8 @@ func StartApp() {
 	if err := router.Run(":8080"); err != nil {
 		panic(err)
 	}
-
+	
+	// http.HandleFunc("/users", handlers.GetUser)
 	// if err := http.ListenAndServe(":8080", nil); err != nil {
 	// 	panic(err)
 	// }

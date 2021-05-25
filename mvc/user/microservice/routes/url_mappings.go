@@ -8,5 +8,4 @@ import(
 func mapUrls(){
 
 	router.GET("/users/:user_id", handlers.GetUser)
-	// http.HandleFunc("/users", handlers.GetUser)
 }
