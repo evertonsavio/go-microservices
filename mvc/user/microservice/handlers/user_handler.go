@@ -1,18 +1,20 @@
 package handlers
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 	"strconv"
 
+	"github.com/gin-gonic/gin"
 	"github.com/havyx/golang-microservices/mvc/user/microservice/services"
 	"github.com/havyx/golang-microservices/mvc/user/microservice/utils"
 )
 
-func GetUser(resp http.ResponseWriter, req *http.Request) {
+func GetUser(c *gin.Context){//(resp http.ResponseWriter, req *http.Request) {
 
-	userId := req.URL.Query().Get("user_id")
+	//userId := req.URL.Query().Get("user_id")
+	userId := c.Param("user_id")
+
 	log.Println("UserId is: " + userId)
 
 	userIdInt, err := strconv.ParseInt(userId, 10, 64)
@@ -24,22 +26,23 @@ func GetUser(resp http.ResponseWriter, req *http.Request) {
 			StatusCode: http.StatusBadRequest,
 			Code:       400,
 		}
-
-		jsonValue, _ := json.Marshal(apiErr)
-		resp.WriteHeader(apiErr.StatusCode)
-		resp.Write(jsonValue)
+		c.JSON(http.StatusBadRequest, apiErr)
 		return
+		// jsonValue, _ := json.Marshal(apiErr)
+		// resp.WriteHeader(apiErr.StatusCode)
+		// resp.Write(jsonValue)
 	}
 
 	user, apiErr := services.UserService.GetUser(userIdInt)
-
 	if apiErr != nil {
-		jsonValue, _ := json.Marshal(apiErr)
-		resp.WriteHeader(apiErr.StatusCode)
-		resp.Write(jsonValue)
+		// jsonValue, _ := json.Marshal(apiErr)
+		// resp.WriteHeader(apiErr.StatusCode)
+		// resp.Write(jsonValue)
+		c.JSON(apiErr.StatusCode, apiErr)
 		return
 	}
 
-	jsonValue, _ := json.Marshal(user)
-	resp.Write(jsonValue)
+	c.JSON(http.StatusOK, user)
+	// jsonValue, _ := json.Marshal(user)
+	// resp.Write(jsonValue)
 }
