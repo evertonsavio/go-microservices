@@ -11,6 +11,9 @@
 * Go Go Team at Google
 * Go Nightly
 ---
+### IDE IntelliJ
+* Gopher
+---
 #### PATH Variables setup
 ```
 # .bash_profile
